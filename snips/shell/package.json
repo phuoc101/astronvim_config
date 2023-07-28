@@ -1,0 +1,14 @@
+{
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "sh",
+          "bash",
+          "zsh"
+        ],
+        "path": "./base.json"
+      }
+    ]
+  }
+}

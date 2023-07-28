@@ -1,0 +1,27 @@
+{
+  "flag in shell script": {
+    "prefix": "flag",
+    "body": [
+      "while getopts \"${4:opt1}${5:opt2}${6:opt3}\" OPTION;",
+      "do",
+      "    case \"$OPTION\" in",
+      "        s) ",
+      "          ${7:cmd1}",
+      "          ;;",
+      "        l) ",
+      "          ${8:cmd2}",
+      "          ;;",
+      "        a) ",
+      "          ${9:cmd3}",
+      "          ;;",
+      "        \\?) ",
+      "          echo \"Invalid option -$OPTARG\" >&2",
+      "          exit 1",
+      "          ;;",
+      "    esac",
+      "done",
+      ""
+    ],
+    "description": "flag in shell script"
+  }
+}

@@ -70,10 +70,20 @@ return {
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
     -- Set up custom filetypes
-    -- vim.filetype.add {
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
+    vim.filetype.add {
+      extension = {
+        -- ROS filetypes
+        launch = "xml",
+        sdf = "xml",
+        jinja = "xml",
+        xacro = "xml",
+        rviz = "yaml",
+        msg = "conf",
+        srv = "conf",
+        -- default tex flavor
+        tex = "tex",
+      },
+    }
     --   filename = {
     --     ["Foofile"] = "fooscript",
     --   },
