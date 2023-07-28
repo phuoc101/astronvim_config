@@ -4,24 +4,38 @@ return {
     "goolord/alpha-nvim",
     opts = function(_, opts)
       -- customize the dashboard header
-      opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+      local dashboard = require "alpha.themes.dashboard"
+      dashboard.section.header.val = {
+
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⠙⢷⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡾⠛⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡇⡀⠀⠉⠻⢶⣤⣀⣠⣤⣤⣄⣀⣀⣠⣤⣤⣄⣀⣤⡶⠟⠉⠀⢀⢸⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⣿⣷⣦⣤⣴⣞⡋⠉⠀⠀⠈⠙⠋⠁⠀⠀⠉⢙⣳⣦⣤⣴⣾⣿⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣧⢻⣿⡿⠟⠋⠉⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠉⠙⠻⢿⣿⡿⣼⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠟⠋⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢦⡀⠀⠙⠻⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣫⡤⠂⢠⣟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣄⠐⢤⣝⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⡿⠋⠀⢠⣿⣿⣷⣶⢶⣤⡀⠀⠀⠀⠀⠀⠀⢀⣤⡶⣶⣾⣿⣿⡄⠀⠙⢿⡟⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⢠⡿⠁⠀⢀⣾⣿⣿⣄⠙⠦⠼⣿⡄⠀⠀⠀⠀⢠⣿⠧⠴⠋⣠⣿⣿⣿⡀⠀⠈⢿⡄⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⢀⡿⠁⠀⠐⢿⣍⠀⠉⠙⠻⣶⣶⣾⠗⠀⠀⠀⠀⠺⣷⣶⣶⠟⠋⠉⠀⣩⡿⠂⠀⠈⢿⡀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⣼⣣⡾⠀⢀⡴⠋⠁⠀⠀⠀⢹⣿⠋⠀⠀⠀⠀⠀⠀⠙⣿⡏⠀⠀⠀⠈⠙⢦⡀⠀⢷⣜⣧⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠰⠛⣿⠃⠀⣼⠁⠀⠀⠀⠀⠀⣸⠇⠀⠀⠀⠀⠀⠀⠀⠀⠸⣇⠀⠀⠀⠀⠀⠈⣧⠀⠘⣿⠛⠆⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⢰⡿⠀⠀⢿⣄⡀⠀⠀⠀⢀⡟⠀⠀⣠⠦⢤⡤⠴⣄⠀⠀⢻⡀⠀⠀⠀⢀⣠⡿⠀⠀⢿⡆⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⢸⣧⣤⣄⣀⡈⠙⠶⣄⠀⠸⣧⠀⠀⠳⣶⣦⣴⣶⠞⠀⠀⣼⠇⠀⣠⠖⠋⢁⣀⣠⣤⣼⡇⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠷⣦⣌⡳⣄⠹⣧⣀⣠⣤⣽⣯⣤⣀⣀⣼⠋⣠⢞⣡⣴⠾⠛⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣮⣷⡌⢿⣤⣀⠀⠀⣀⣤⡿⢡⣾⣵⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣆⠹⣿⣿⣿⣿⠏⣰⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣧⠘⢿⡿⠃⣼⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣧⠈⠁⣼⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣧⣼⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
       }
+      dashboard.config.layout[1].val = vim.fn.max { 1, vim.fn.floor(vim.fn.winheight(0) * 0.1) }
+      dashboard.config.layout[3].val = 1
       return opts
     end,
   },
   -- You can disable default plugins as follows:
-  -- { "max397574/better-escape.nvim", enabled = false },
+  { "mrjones2014/smart-splits.nvim", enabled = false },
   --
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   -- {
@@ -63,15 +77,15 @@ return {
   --   end,
   -- },
   -- By adding to the which-key config and using our helper function you can add more which-key registered bindings
-  -- {
-  --   "folke/which-key.nvim",
-  --   config = function(plugin, opts)
-  --     require "plugins.configs.which-key"(plugin, opts) -- include the default astronvim config that calls the setup call
-  --     -- Add bindings which show up as group name
-  --     local wk = require "which-key"
-  --     wk.register({
-  --       b = { name = "Buffer" },
-  --     }, { mode = "n", prefix = "<leader>" })
-  --   end,
-  -- },
+  {
+    "folke/which-key.nvim",
+    config = function(plugin, opts)
+      require "plugins.configs.which-key"(plugin, opts) -- include the default astronvim config that calls the setup call
+      -- Add bindings which show up as group name
+      local wk = require "which-key"
+      wk.register({
+        b = { name = "Buffer" },
+      }, { mode = "n", prefix = "<leader>" })
+    end,
+  },
 }
