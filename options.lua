@@ -8,6 +8,8 @@ return {
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
     timeoutlen = 200, -- sets vim.opt.timeoutlen
+    cmdheight = 1, -- more space in the neovim command line for displaying messages
+    laststatus = 3, -- set global statusline
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader

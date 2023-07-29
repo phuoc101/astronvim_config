@@ -12,13 +12,17 @@ return {
     ["<C-Up>"] = { ":resize -2<CR>" },
     ["<C-Down>"] = { ":resize +2<CR>" },
     ["<C-Left>"] = { ":vertical resize -2<CR>" },
-    ["<C-Down>"] = { ":vertical resize +2<CR>" },
+    ["<C-Right>"] = { ":vertical resize +2<CR>" },
     -- Switch buffer
     ["<S-l>"] = { "<cmd>bnext<cr>" },
     ["<S-h>"] = { "<cmd>bprevious<cr>" },
     -- FZF
     ["<leader>ff"] = { "<cmd>Files<cr>", desc = "Find files" },
     ["<leader>fw"] = { "<cmd>Rg<cr>", desc = "Find words" },
+    -- Buffers
+    ["<leader>bp"] = { "<cmd>BufferLineTogglePin<cr>", desc = "Toggle Pin Buffer" },
+    ["<leader>bP"] = { "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
+    ["<leader>bd"] = { "<Cmd>bdelete!<CR>", desc = "Delete buffer" },
     -- Move cursor to end/beginning
     ["B"] = { "^" },
     ["E"] = { "$" },
@@ -39,6 +43,8 @@ return {
     -- Move cursor to end/beginning
     ["B"] = { "^" },
     ["E"] = { "$" },
+    -- Sane paste option
+    ["p"] = { "P" },
   },
   -- TERMINAL
   t = {
