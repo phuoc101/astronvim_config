@@ -1,5 +1,7 @@
 return {
   "f3fora/nvim-texlabconfig",
+  ft = { "tex", "bib" }, -- for lazy loading
+  build = "go build -o ~/.local/bin",
   config = function()
     local config = {
       cache_activate = true,
@@ -15,6 +17,12 @@ return {
       settings = {
         texlab = {
           auxDirectory = ".",
+          build = {
+            args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+            executable = "latexmk",
+            forwardSearchAfter = true,
+            onSave = false,
+          },
           bibtexFormatter = "texlab",
           diagnosticsDelay = 300,
           formatterLineLength = 80,
@@ -36,6 +44,4 @@ return {
       },
     }
   end,
-  ft = { "tex", "bib" }, -- for lazy loading
-  build = "go build -o ~/.local/bin",
 }

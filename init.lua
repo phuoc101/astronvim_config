@@ -63,8 +63,9 @@ return {
   polish = function()
     -- Autocmds
     local function augroup(name) return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true }) end
-    -- close some filetypes with <q>
+
     vim.api.nvim_create_autocmd("FileType", {
+      desc = "Make q close some filetypes",
       group = augroup "close_with_q",
       pattern = {
         "PlenaryTestPopup",
@@ -86,30 +87,41 @@ return {
         vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
       end,
     })
-    --
-    -- Highlight on yank
-    vim.api.nvim_create_autocmd("TextYankPost", {
-      group = augroup "highlight_yank",
-      callback = function() vim.highlight.on_yank() end,
-    })
-    --
-    -- resize splits if window got resized
+
     vim.api.nvim_create_autocmd({ "VimResized" }, {
+      desc = "Resize splits if window got resized",
       group = augroup "resize_splits",
       callback = function() vim.cmd "tabdo wincmd =" end,
     })
-    --
-    -- wrap and check for spell in text filetypes
+
     vim.api.nvim_create_autocmd("FileType", {
+      desc = "Wrap and check for spell in text filetypes",
       group = augroup "wrap_spell",
       pattern = { "gitcommit", "markdown", "tex", "text" },
+      callback = function() vim.opt_local.wrap = true end,
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      desc = "Mappings for texlab",
+      group = augroup "texlab_map",
+      pattern = { "tex", "bib" },
       callback = function()
-        vim.opt_local.wrap = true
+        local tex_mappings = require("astronvim.utils").empty_map_table()
+        local utils = require "astronvim.utils"
+        local user_opts = astronvim.user_opts
+        tex_mappings.n["<localleader>ll"] = { "<cmd>TexlabBuild<cr>", desc = "Build Tex file" }
+        tex_mappings.n["<localleader>lv"] = { "<cmd>TexlabForward<cr>", desc = "Forward search" }
+        utils.set_mappings(user_opts("tex_mapping", tex_mappings))
+
+        local wk = require "which-key"
+        wk.register({
+          l = { name = "Latex" },
+        }, { mode = "n", prefix = "<localleader>" })
       end,
     })
-    --
-    -- Set up custom filetypes
+
     vim.filetype.add {
+      desc = "Set up custom filetypes",
       extension = {
         -- ROS filetypes
         launch = "xml",
@@ -123,12 +135,5 @@ return {
         tex = "tex",
       },
     }
-    --   filename = {
-    --     ["Foofile"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     ["~/%.config/foo/.*"] = "fooscript",
-    --   },
-    -- }
   end,
 }
