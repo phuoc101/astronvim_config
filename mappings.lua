@@ -26,6 +26,9 @@ return {
     -- Move cursor to end/beginning
     ["B"] = { "^" },
     ["E"] = { "$" },
+    -- Disable split
+    ["\\"] = false,
+    ["|"] = false,
   },
   -- INSERT
   i = {
