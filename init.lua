@@ -120,6 +120,24 @@ return {
       end,
     })
 
+    vim.api.nvim_create_autocmd("FileType", {
+      desc = "Mappings for markdown preview",
+      group = augroup "markdown_map",
+      pattern = { "markdown" },
+      callback = function()
+        local md_mappings = require("astronvim.utils").empty_map_table()
+        local utils = require "astronvim.utils"
+        local user_opts = astronvim.user_opts
+        md_mappings.n["<localleader>mv"] = { "<cmd>MarkdownPreview<cr>", desc = "Preview markdown" }
+        utils.set_mappings(user_opts("md_mapping", md_mappings))
+
+        local wk = require "which-key"
+        wk.register({
+          m = { name = "Markdown" },
+        }, { mode = "n", prefix = "<localleader>" })
+      end,
+    })
+
     vim.filetype.add {
       desc = "Set up custom filetypes",
       extension = {
