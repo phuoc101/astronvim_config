@@ -10,6 +10,8 @@ return {
     timeoutlen = 200, -- sets vim.opt.timeoutlen
     cmdheight = 1, -- more space in the neovim command line for displaying messages
     laststatus = 3, -- set global statusline
+    tabstop = 2, -- number of space in a tab
+    shiftwidth = 2, -- number of space inserted for indentation
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
