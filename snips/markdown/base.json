@@ -1,0 +1,30 @@
+{
+  "Code style black": {
+    "prefix": "code",
+    "body": [
+      "[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)"
+    ],
+    "description": "Code style black"
+  },
+  "License MIT": {
+    "prefix": "license",
+    "body": [
+      "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+    ],
+    "description": "License MIT"
+  },
+  "License GPLv2": {
+    "prefix": "license",
+    "body": [
+      "[![License: MIT](https://img.shields.io/badge/license-GPLv2-blue)](https://opensource.org/license/gpl-2-0)"
+    ],
+    "description": "License GPLv2"
+  },
+  "License GPLv3": {
+    "prefix": "license",
+    "body": [
+      "[![License: MIT](https://img.shields.io/badge/license-GPLv3-blue)](https://opensource.org/license/gpl-3-0)"
+    ],
+    "description": "License GPLv3"
+  }
+}

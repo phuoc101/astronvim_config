@@ -45,6 +45,7 @@ return {
       require("luasnip.loaders.from_vscode").load { paths = "./lua/user/snips/launch" }
       require("luasnip.loaders.from_vscode").load { paths = "./lua/user/snips/tex" }
       require("luasnip.loaders.from_vscode").load { paths = "./lua/user/snips/shell" }
+      require("luasnip.loaders.from_vscode").load { paths = "./lua/user/snips/markdown" }
     end,
   },
   -- {
