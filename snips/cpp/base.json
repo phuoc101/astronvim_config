@@ -1,0 +1,30 @@
+{
+  "License GPLv3": {
+    "prefix": "license_gplv3",
+    "body": [
+      "/**",
+      " * @file $TM_FILENAME",
+      " * @brief ${2:brief description}",
+      " *",
+      " * Copyright (C) $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      " * Author: ${3:Phuoc Nguyen}",
+      " * Email: ${4:nguyenthuanphuoc101@protonmail.com}",
+      " * All rights reserved.",
+      " *",
+      " * This program is free software: you can redistribute it and/or modify",
+      " * it under the terms of the GNU General Public License as published by",
+      " * the Free Software Foundation, either version 3 of the License, or",
+      " * (at your option) any later version.",
+      " *",
+      " * This program is distributed in the hope that it will be useful,",
+      " * but WITHOUT ANY WARRANTY; without even the implied warranty of",
+      " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the",
+      " * GNU General Public License for more details.",
+      " *",
+      " * You should have received a copy of the GNU General Public License",
+      " * along with this program.  If not, see <https://www.gnu.org/licenses/>.",
+      " */"
+    ],
+    "description": "License GPLv3"
+  }
+}

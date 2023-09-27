@@ -167,30 +167,17 @@
     "description": "Create template for lambda function"
   },
   "matplotlib import": {
-    "prefix": [
-      "pltim",
-      "implt"
-    ],
-    "body": [
-      "import matplotlib.pyplot as plt"
-    ],
+    "prefix": ["pltim", "implt"],
+    "body": ["import matplotlib.pyplot as plt"],
     "description": "matplotlib Import"
   },
   "numpy import": {
-    "prefix": [
-      "npim",
-      "imnp"
-    ],
-    "body": [
-      "import numpy as np"
-    ],
+    "prefix": ["npim", "imnp"],
+    "body": ["import numpy as np"],
     "description": "numpy Import"
   },
   "ML Imports": {
-    "prefix": [
-      "mlimp",
-      "impml"
-    ],
+    "prefix": ["mlimp", "impml"],
     "body": [
       "import tensorflow as tf",
       "from tensorflow.keras import layers, models",
@@ -207,21 +194,12 @@
     "description": "Python logging"
   },
   "Loguru level setting": {
-    "prefix": [
-      "loguruconfig",
-      "logging"
-    ],
-    "body": [
-      "logger.remove()",
-      "logger.add(sys.stderr, level=\"INFO\")"
-    ],
+    "prefix": ["loguruconfig", "logging"],
+    "body": ["logger.remove()", "logger.add(sys.stderr, level=\"INFO\")"],
     "description": "Loguru level setting"
   },
   "ALive Bar init": {
-    "prefix": [
-      "alive_bar",
-      "bar"
-    ],
+    "prefix": ["alive_bar", "bar"],
     "body": [
       "with alive_bar(int(${1:len}), ctrl_c=False, title=f\"${2:title}\") as bar:",
       ""
@@ -229,16 +207,42 @@
     "description": "ALive Bar init"
   },
   "Benchmarking": {
-    "prefix": [
-      "elaps",
-      "bench",
-      "time"
-    ],
+    "prefix": ["elaps", "bench", "time"],
     "body": [
       "start = time.perf_counter()",
       "end = time.perf_counter()",
       "elapsed = end - start"
     ],
     "description": "Benchmarking"
+  },
+  "License GPLv3": {
+    "prefix": "license_gplv3",
+    "body": [
+      "##############################################################################",
+      "#",
+      "#  @file $TM_FILENAME",
+      "#  @brief ${2:brief description}",
+      "#",
+      "#  Copyright (C) $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND.",
+      "#  Author: ${3:Nguyen Thuan Phuoc}",
+      "#  Email: ${4:nguyenthuanphuoc101@protonmail.com}",
+      "#  All rights reserved.",
+      "#",
+      "#  This program is free software: you can redistribute it and/or modify",
+      "#  it under the terms of the GNU General Public License as published by",
+      "#  the Free Software Foundation, either version 3 of the License, or",
+      "#  (at your option) any later version.",
+      "#",
+      "#  This program is distributed in the hope that it will be useful,",
+      "#  but WITHOUT ANY WARRANTY; without even the implied warranty of",
+      "#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the",
+      "#  GNU General Public License for more details.",
+      "#",
+      "#  You should have received a copy of the GNU General Public License",
+      "#  along with this program.  If not, see <https://www.gnu.org/licenses/>.",
+      "#",
+      "##############################################################################"
+    ],
+    "description": "License GPLv3"
   }
 }
