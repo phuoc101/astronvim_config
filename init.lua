@@ -102,8 +102,8 @@ return {
     })
 
     vim.api.nvim_create_autocmd("FileType", {
-      desc = "Mappings for texlab",
-      group = augroup "texlab_map",
+      desc = "Mappings for vimtex",
+      group = augroup "vimtex_map",
       pattern = { "tex", "bib" },
       callback = function()
         local tex_mappings = require("astronvim.utils").empty_map_table()
@@ -135,6 +135,17 @@ return {
         wk.register({
           m = { name = "Markdown" },
         }, { mode = "n", prefix = "<localleader>" })
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      desc = "Set indent space for specific filetypes",
+      group = augroup "set_indent",
+      pattern = { "markdown", "cpp", "c", "lua", "latex", "xml" },
+      callback = function()
+        local set = vim.opt
+        set.tabstop = 2
+        set.shiftwidth = 2
       end,
     })
 

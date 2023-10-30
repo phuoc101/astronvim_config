@@ -29,6 +29,8 @@ return {
     -- Disable split
     ["\\"] = false,
     ["|"] = false,
+    -- Rename symbol
+    ["<F2>"] = {"<cmd>lua vim.lsp.buf.rename()<cr>"}
   },
   -- INSERT
   i = {
@@ -48,6 +50,9 @@ return {
     ["E"] = { "$" },
     -- Sane paste option
     ["p"] = { "P" },
+    -- Indent in visual mode
+    [">"] = {">gv"},
+    ["<"] = {"<gv"},
   },
   -- TERMINAL
   t = {

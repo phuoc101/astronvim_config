@@ -1,4 +1,27 @@
 return {
+  -- {
+  --   "lervag/vimtex",
+  --   ft = { "tex", "bib" },
+  --   config = function()
+  --     -- Preview methods
+  --     vim.g.vimtex_view_method = "zathura"
+  --     vim.g.vimtex_view_general_viewer = "zathura"
+  --     vim.g.vimtex_view_forward_search_on_start = false
+  --     -- Disable some unused features
+  --     vim.g.vimtex_toc_enabled = 0
+  --     vim.g.vimtex_fold_enabled = 0
+  --     vim.g.vimtex_format_enabled = 0
+  --     vim.g.vimtex_indent_enabled = 0
+  --     --
+  --     vim.g.tex_flavor = "latex"
+  --     vim.g.vimtex_quickfix_ignore_filters = {
+  --       "Underfull",
+  --       "Overfull",
+  --       "Package caption Warning",
+  --       "Rerun to get cross-references right.",
+  --     }
+  --   end,
+  -- },
   {
     "f3fora/nvim-texlabconfig",
     ft = { "tex", "bib" },
@@ -22,18 +45,31 @@ return {
               args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
               executable = "latexmk",
               forwardSearchAfter = true,
-              onSave = false,
+              onSave = true,
             },
             bibtexFormatter = "texlab",
             diagnosticsDelay = 300,
             formatterLineLength = 80,
             forwardSearch = {
-              executable = "zathura",
+              -- executable = "zathura",
+              -- args = {
+              --   "--synctex-editor-command",
+              --   [[nvim-texlabconfig -file '%%%{input}' -line %%%{line} -server ]] .. vim.v.servername,
+              --   "--synctex-forward",
+              --   "%l:1:%f",
+              --   "%p",
+              -- },
+              executable = "sioyek",
               args = {
-                "--synctex-editor-command",
-                [[nvim-texlabconfig -file '%%%{input}' -line %%%{line} -server ]] .. vim.v.servername,
-                "--synctex-forward",
-                "%l:1:%f",
+                "--reuse-window",
+                "--execute-command",
+                "toggle_synctex", -- Open Sioyek in synctex mode.
+                "--inverse-search",
+                [[nvim-texlabconfig -file %%%1 -line %%%2 -server ]] .. vim.v.servername,
+                "--forward-search-file",
+                "%f",
+                "--forward-search-line",
+                "%l",
                 "%p",
               },
             },
