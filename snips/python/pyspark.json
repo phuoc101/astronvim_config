@@ -1,0 +1,128 @@
+{
+  "Create SparkSession object": {
+    "prefix": "spark:sparksession",
+    "body": [
+      "spark = (SparkSession",
+      "  .builder",
+      "  .appName(\"${1:SparkSQLExampleApp}\")",
+      "  .getOrCreate())"
+    ],
+    "description": "Create SparkSession object"
+  },
+  "Reading a CSV": {
+    "prefix": "spark:read",
+    "body": ["spark.read.csv(\"${1:filename}.csv\")"],
+    "description": "Reading a CSV"
+  },
+  "Reading a CSV with header and inferSchema": {
+    "prefix": "spark:read",
+    "body": [
+      "spark.read.\\",
+      "      option(\"header\", \"true\").\\",
+      "      option(\"inferSchema\", \"true\").\\",
+      "      csv(\"${1:filename}.csv\")"
+    ],
+    "description": "Reading a CSV with header and inferSchema"
+  },
+  "Reading a CSV with load methodd": {
+    "prefix": "spark:load",
+    "body": ["spark.read.format(\"csv\").load(\"${1: filename}.csv\")"],
+    "description": "Reading a CSV with load methodd"
+  },
+  "Reading a CSV with header using load": {
+    "prefix": "spark:load",
+    "body": [
+      "spark.read.format(\"csv\").\\",
+      "           option(\"header\", \"true\").\\",
+      "           option(\"inferSchema\", \"true\").\\",
+      "           load(\"${1:filename}.csv\")"
+    ],
+    "description": "Reading a CSV with header using load"
+  },
+  "Reading a CSV using load for different format": {
+    "prefix": "spark:load_format",
+    "body": [
+      "spark.read.format(\"${1: file format}\"). \\",
+      "           load(\"${2: filenamme}.${1: file format}\")"
+    ],
+    "description": "Reading a CSV using load for different format"
+  },
+  "Select one column from your DataFrame": {
+    "prefix": "spark:selcol",
+    "body": ["${1:df}.select(\"${1:column}\").show()"],
+    "description": "Select one column from your DataFrame"
+  },
+  "Select multiple columns from your DataFrame": {
+    "prefix": "spark:selcolmult",
+    "body": ["df.select(\"${1: column1}\", \"${2: column2}\").show()"],
+    "description": "Select multiple columns from your DataFrame"
+  },
+  "Select a column and add 1 to every entry": {
+    "prefix": "spark:selcoladd1",
+    "body": ["${1:df}.select(${1:df}.${2:column} + 1).show()"],
+    "description": "Select a column and add 1 to every entry"
+  },
+  "Filter your DataFrame and select a column": {
+    "prefix": "spark:filter",
+    "body": [
+      "${1:df}.filter(${1:df}.${2:column1} > 20).\\",
+      "        select(\"${3:column2}\").show()"
+    ],
+    "description": "Filter your DataFrame and select a column"
+  },
+  "Filter your DataFrame with AND": {
+    "prefix": "spark:filterand",
+    "body": [
+      "${1:df}.filter((${1:df}.${2:column1} > 20) & (${1:df}.${3:column2} < 10)).\\",
+      "        select(\"${4:column3}\").show()"
+    ],
+    "description": "Filter your DataFrame with AND"
+  },
+  "Filter your DataFrame with OR": {
+    "prefix": "spark:filteror",
+    "body": [
+      "${1:df}.filter((${1:df}.${2:column1} > 20) | (${1:df}.${3:column2} < 10)).\\",
+      "        select(\"${4:column3}\").show()"
+    ],
+    "description": "Filter your DataFrame with OR"
+  },
+  "GroupBy a column and count": {
+    "prefix": "spark:groupbycount",
+    "body": ["${1:df}.groupby(\"${2:column}\").count().show()"],
+    "description": "GroupBy a column and count"
+  },
+  "GroupBy a column and sum": {
+    "prefix": "spark:groupbysum",
+    "body": ["${1:df}.groupby(\"${2:column1}\").sum(\"${3:column2}\").show()"],
+    "description": "GroupBy a column and sum"
+  },
+  "GroupBy with multiple columns and count": {
+    "prefix": "spark:groupbymultsummult",
+    "body": [
+      "${1:df}.groupby(\"${2:column1}\", \"${3:column2}\").\\",
+      "        count().\\",
+      "        show()"
+    ],
+    "description": "GroupBy with multiple columns and count"
+  },
+  "GroupBy with multiple columns and sum multiple columns": {
+    "prefix": "spark:groupbymultsummult",
+    "body": [
+      "${1:df}.groupby(\"${2:column1}\", \"${3:column2}\").\\",
+      "        sum(\"${4:column3}\", \"${5:column4}\").",
+      "        show()"
+    ],
+    "description": "GroupBy with multiple columns and sum multiple columns"
+  },
+  "groupby and aggregate": {
+    "prefix": "spark:groupbyagg",
+    "body": [
+      "${1:df}: DataFrame = (",
+      "    ${2:origdf}.groupBy(\"year\")",
+      "    .agg(${3:functions.min(\"col1\"), functions.max(\"col2\")})",
+      "    .limit(5)",
+      ")"
+    ],
+    "description": "groupby and aggregate"
+  }
+}
