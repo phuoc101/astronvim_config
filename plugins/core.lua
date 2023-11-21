@@ -83,10 +83,12 @@ return {
     config = function(plugin, opts)
       require "plugins.configs.which-key"(plugin, opts) -- include the default astronvim config that calls the setup call
       -- Add bindings which show up as group name
-      local wk = require "which-key"
-      wk.register({
-        b = { name = "Buffer" },
-      }, { mode = "n", prefix = "<leader>" })
+      local git_mappings = require("astronvim.utils").empty_map_table()
+      local utils = require "astronvim.utils"
+      local user_opts = astronvim.user_opts
+      git_mappings.n["<leader>gj"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" }
+      git_mappings.n["<leader>gk"] = { function() require("gitsigns").prev_hunk() end, desc = "Previous Git hunk" }
+      utils.set_mappings(user_opts("git_mapping", git_mappings))
     end,
   },
 }
