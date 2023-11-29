@@ -30,7 +30,18 @@ return {
     ["\\"] = false,
     ["|"] = false,
     -- Rename symbol
-    ["<F2>"] = {"<cmd>lua vim.lsp.buf.rename()<cr>"}
+    ["<F2>"] = { "<cmd>lua vim.lsp.buf.rename()<cr>" },
+    -- Toggle diagnostics
+    ["<leader><leader>"] = {
+      function()
+        if not vim.diagnostic.config().virtual_text then
+          vim.diagnostic.config { virtual_text = true }
+        else
+          vim.diagnostic.config { virtual_text = false }
+        end
+      end,
+      desc = "Toggle diagnostics",
+    },
   },
   -- INSERT
   i = {
@@ -51,8 +62,8 @@ return {
     -- Sane paste option
     ["p"] = { "P" },
     -- Indent in visual mode
-    [">"] = {">gv"},
-    ["<"] = {"<gv"},
+    [">"] = { ">gv" },
+    ["<"] = { "<gv" },
   },
   -- TERMINAL
   t = {
