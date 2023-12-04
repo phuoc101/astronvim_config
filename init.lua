@@ -109,7 +109,7 @@ return {
         local tex_mappings = require("astronvim.utils").empty_map_table()
         local utils = require "astronvim.utils"
         local user_opts = astronvim.user_opts
-        tex_mappings.n["<localleader>ll"] = { "<cmd>TexlabBuild<cr>", desc = "Build Tex file" }
+        tex_mappings.n["<localleader>ll"] = { "<cmd>TexlabBuild | <cr>", desc = "Build Tex file" }
         tex_mappings.n["<localleader>lv"] = { "<cmd>TexlabForward<cr>", desc = "Forward search" }
         utils.set_mappings(user_opts("tex_mapping", tex_mappings))
 
