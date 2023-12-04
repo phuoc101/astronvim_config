@@ -6,12 +6,14 @@ return {
     number = true, -- sets vim.opt.number
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-    wrap = false, -- sets vim.opt.wrap
+    wrap = true, -- sets vim.opt.wrap
     timeoutlen = 200, -- sets vim.opt.timeoutlen
     cmdheight = 1, -- more space in the neovim command line for displaying messages
     laststatus = 3, -- set global statusline
     tabstop = 4, -- number of space in a tab
     shiftwidth = 4, -- number of space inserted for indentation
+    textwidth = 120,
+    colorcolumn = "120",
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
