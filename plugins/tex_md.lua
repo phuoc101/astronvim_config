@@ -44,7 +44,7 @@ return {
             build = {
               args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
               executable = "latexmk",
-              forwardSearchAfter = true,
+              forwardSearchAfter = false,
               onSave = true,
             },
             bibtexFormatter = "texlab",
