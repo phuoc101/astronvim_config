@@ -44,7 +44,7 @@ return {
             build = {
               args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
               executable = "latexmk",
-              forwardSearchAfter = true,
+              forwardSearchAfter = false,
               onSave = true,
             },
             bibtexFormatter = "texlab",
@@ -61,7 +61,7 @@ return {
               -- },
               executable = "sioyek",
               args = {
-                "--reuse-window",
+                "--new-window",
                 "--execute-command",
                 "toggle_synctex", -- Open Sioyek in synctex mode.
                 "--inverse-search",
