@@ -64,6 +64,9 @@ return {
     -- Indent in visual mode
     [">"] = { ">gv" },
     ["<"] = { "<gv" },
+    -- Navigation
+    ["j"] = { "gj" },
+    ["k"] = { "gk" },
   },
   -- TERMINAL
   t = {
