@@ -244,5 +244,19 @@
       "##############################################################################"
     ],
     "description": "License GPLv3"
+  },
+  "analyzing code": {
+    "prefix": "cprofile",
+    "body": [
+      "import cProfile",
+      "import pstats",
+      "",
+      "with cProfile.Profile() as pr:",
+      "\t${1:code to analyze}",
+      "stats = pstats.Stats(pr)",
+      "stats.sort_stats(pstats.SortKey.TIME)",
+      "stats.print_stats()"
+    ],
+    "description": "analyzing code"
   }
 }

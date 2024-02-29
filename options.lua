@@ -12,7 +12,7 @@ return {
     laststatus = 3, -- set global statusline
     tabstop = 4, -- number of space in a tab
     shiftwidth = 4, -- number of space inserted for indentation
-    textwidth = 120,
+    -- textwidth = 120,
     colorcolumn = "120",
   },
   g = {

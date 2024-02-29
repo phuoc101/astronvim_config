@@ -45,7 +45,7 @@ return {
               args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
               executable = "latexmk",
               forwardSearchAfter = false,
-              onSave = true,
+              onSave = false,
             },
             bibtexFormatter = "texlab",
             diagnosticsDelay = 300,
